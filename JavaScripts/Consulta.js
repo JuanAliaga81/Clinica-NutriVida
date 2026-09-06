@@ -9,7 +9,7 @@ let consultasDisponibles = [
     },
     {id: 2,
         nombre: "Control nutricional(Seguimiento)",
-        descripcion: "Seguimiento mensual: Medición de indicadores y ajuste del plan vigente",
+        descripcion: "Seguimiento mensual: Medición de indicadores y ajuste del plan vigente.",
         duracion: "30 minutos",
         modalidad: "Presencial",
         profesional: "Nutricionista",
@@ -60,7 +60,7 @@ let lista_Consultas = document.getElementById("ListaConsulta");
                     </div>
                 </div>
             </div>
-        
+            
         
         `;
     }

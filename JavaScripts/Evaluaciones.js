@@ -33,9 +33,33 @@ let EvaluacionesDisponibles = [
     }
 ];
 
-let lista_Evaluaciones = document.getElementById("ListaEvaluaciones");
+    function evalua(){
+        let lista_Evaluaciones = document.getElementById("ListaEvaluaciones");
+
+    let login = JSON.parse(
+                localStorage.getItem("login")
+            );
+
+            if(login != null && login.admin == "si"){
+                lista_Evaluaciones.innerHTML += `<div class="col-12 mb-3">
+                <button onclick="aniadir('EvaluacionesDisponibles')" class="btn btn-success">
+                    Añadir Evaluaciones
+                </button>
+            </div>`;
+            }
 
     for (let i = 0; i < EvaluacionesDisponibles.length; i++){
+
+        let botonElim = "";
+
+            if(login != null && login.admin == "si"){
+                botonElim = `
+                    <button onclick="eliminarEvaluacion(${EvaluacionesDisponibles[i].id})" class="btn btn-danger">
+                        Eliminar Empleado
+                    </button>
+                `;
+                }
+
         lista_Evaluaciones.innerHTML += `
         
         
@@ -48,11 +72,28 @@ let lista_Evaluaciones = document.getElementById("ListaEvaluaciones");
                         Precio: $${EvaluacionesDisponibles[i].precio}. <br>
                         duracion: ${EvaluacionesDisponibles[i].duracion}. <br>
                         profesional: ${EvaluacionesDisponibles[i].profesional}</p>
-                        <a href="#" class="btn btn-primary">Tomar hora</a>
+                        <a onclick=Evaluacion(${EvaluacionesDisponibles[i].id}) class="btn btn-primary">Tomar hora</a>
+                        ${botonElim}
                     </div>
                 </div>
             </div>
         
         
-        `;
+        `;}
     }
+
+    function Evaluacion(id){
+    let evalu;
+    for(let i = 0; i <EvaluacionesDisponibles.length; i++){
+        if (EvaluacionesDisponibles[i].id === id){
+            evalu = EvaluacionesDisponibles[i];
+        }
+    }
+
+    localStorage.setItem(
+        "horario",
+        JSON.stringify(evalu),
+    );
+    document.getElementById("Horario").innerHTML=``;
+    empleads();
+}

@@ -49,9 +49,33 @@ let planesDisponibles = [
     }
 ];
 
-let lista_Planes = document.getElementById("ListaPlanes");
+function planes(){
+    let lista_Planes = document.getElementById("ListaPlanes");
+
+    let login = JSON.parse(
+                localStorage.getItem("login")
+            );
+
+            if(login != null && login.admin == "si"){
+                lista_Planes.innerHTML += `<div class="col-12 mb-3">
+                <button onclick="aniadir('planesDisponibles')" class="btn btn-success">
+                    Añadir Planes
+                </button>
+            </div>`;
+            }
 
     for (let i = 0; i < planesDisponibles.length; i++){
+
+        let botonElim = "";
+
+            if(login != null && login.admin == "si"){
+                botonElim = `
+                    <button onclick="eliminarPlan(${planesDisponibles[i].id})" class="btn btn-danger">
+                        Eliminar Empleado
+                    </button>
+                `;
+                }
+
         lista_Planes.innerHTML += `
         
         
@@ -64,11 +88,29 @@ let lista_Planes = document.getElementById("ListaPlanes");
                         Precio: $${planesDisponibles[i].precio}. <br>
                         duracion: ${planesDisponibles[i].duracion}. <br>
                         profesional: ${planesDisponibles[i].profesional}</p>
-                        <a href="#" class="btn btn-primary">Tomar hora</a>
+                        <a onclick=Plan(${planesDisponibles[i].id}) class="btn btn-primary">Tomar hora</a>
+                        ${botonElim}
                     </div>
                 </div>
             </div>
         
         
-        `;
+        `;}
     }
+
+function Plan(id){
+    let planes;
+    for(let i = 0; i <planesDisponibles.length; i++){
+        if (planesDisponibles[i].id === id){
+            planes = planesDisponibles[i];
+        }
+    }
+
+    localStorage.setItem(
+        "horario",
+        JSON.stringify(planes),
+    );
+    document.getElementById("Horario").innerHTML=``;
+    empleads();
+}
+

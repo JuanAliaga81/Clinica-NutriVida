@@ -16,21 +16,47 @@
         <header>
             <nav class="navbar bg-body-tertiary">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="#">
+                    <a class="navbar-brand" onclick="Principal()">
                         <img src="logo.png" alt="Logo" width="30" class="d-inline-block align-text-top"> Clinica NutriVida
                     </a>
-                    <a href="Horario.html" class="btn btn-primary">Reservar Hora</a>
+                    <div class="col-15">
+                    <button onclick="Tomadas()" class="btn btn-primary">Ve tu hora</button>
+                    <button onclick="Horarios()" class="btn btn-primary">Reservar Hora</button>
+                    </div>
                 </div>
             </nav>
         </header>
 
         <main>
-            
+            <div id="Horario"></div>
+            <div id="Empleados"></div>
+            <div id="Hora"></div>
+                
+                
+                
 
+        <div id="carouselExample" class="carousel slide">
+                <div class="carousel-inner">
+                        <div class="carousel-item active">
+                        <img  src="Imagenes/1.jpg" class="rounded mx-auto d-block" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                        <img src="Imagenes/2.jpg" class="rounded mx-auto d-block" alt="...">
+                        </div>
+                    </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                </button>
+        </div>
 
 
         
-            
+
         </main>
 
         <footer class="mt-auto text-white pt-4 pb-4" style="background-color: rgb(54, 52, 57);">
@@ -78,6 +104,13 @@
             </div>
         </footer>
 
+        <script src="JavaScripts/Usuario.js"></script>
+        <script src="JavaScripts/Pagina.js"></script>
+        <script src="JavaScripts/Empleados.js"></script>
+        <script src="JavaScripts/Grupal.js"></script>
+        <script src="JavaScripts/Evaluaciones.js"></script>
+        <script src="JavaScripts/Consulta.js"></script>
+        <script src="JavaScripts/Planes.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous">
         </script>
     </body>

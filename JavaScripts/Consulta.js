@@ -40,27 +40,67 @@ let consultasDisponibles = [
         precio: 28000
     }
 ];
+    function consul(){
+        let lista_Consultas = document.getElementById("ListaConsulta");
 
-let lista_Consultas = document.getElementById("ListaConsulta");
+        let login = JSON.parse(
+                localStorage.getItem("login")
+            );
 
-    for (let i = 0; i < consultasDisponibles.length; i++){
-        lista_Consultas.innerHTML += `
-        
-        
-            <div class="col-sm-6 mb-3 mb-sm-0">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">${consultasDisponibles[i].nombre}</h5>
-                        <p class="card-text">${consultasDisponibles[i].descripcion} <br>
-                        Modalidad: ${consultasDisponibles[i].modalidad}. <br> 
-                        Precio: $${consultasDisponibles[i].precio}. <br>
-                        duracion: ${consultasDisponibles[i].duracion}. <br>
-                        profesional: ${consultasDisponibles[i].profesional}</p>
-                        <a href="#" class="btn btn-primary">Tomar hora</a>
+            if(login != null && login.admin == "si"){
+                lista_Consultas.innerHTML += `<div class="col-12 mb-3">
+                <button onclick="aniadir('consultasDisponibles')" class="btn btn-success">
+                    Añadir Consultas
+                </button>
+            </div>`;
+            }
+        for (let i = 0; i < consultasDisponibles.length; i++){
+
+            let botonElim = "";
+
+            if(login != null && login.admin == "si"){
+                botonElim = `
+                    <button onclick="eliminarConsulta(${consultasDisponibles[i].id})" class="btn btn-danger">
+                        Eliminar Consulta
+                    </button>
+                `;
+                }
+            lista_Consultas.innerHTML += `
+            
+                <div class="col-sm-6 mb-3 mb-sm-0">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">${consultasDisponibles[i].nombre}</h5>
+                            <p class="card-text">${consultasDisponibles[i].descripcion} <br>
+                            Modalidad: ${consultasDisponibles[i].modalidad}. <br> 
+                            Precio: $${consultasDisponibles[i].precio}. <br>
+                            duracion: ${consultasDisponibles[i].duracion}. <br>
+                            profesional: ${consultasDisponibles[i].profesional}</p>
+                            <a onclick=Consutla(${consultasDisponibles[i].id}) class="btn btn-primary">Tomar hora</a>
+                            ${botonElim}
+                        </div>
                     </div>
                 </div>
-            </div>
+                
             
-        
-        `;
+            `;}
     }
+
+    
+function Consutla(id){
+    let consultas;
+    for(let i = 0; i <consultasDisponibles.length; i++){
+        if (consultasDisponibles[i].id === id){
+            consultas = consultasDisponibles[i];
+        }
+    }
+
+    localStorage.setItem(
+        "horario",
+        JSON.stringify(consultas),
+    );
+    document.getElementById("Horario").innerHTML=``;
+    empleads();
+}
+
+    

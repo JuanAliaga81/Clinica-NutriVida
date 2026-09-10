@@ -9,15 +9,13 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
         <link href="style.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-        <title>Consultas</title>
-</head>
-
-
+        <title>index</title>
+    </head>
 <body>
-        <header>
+    <header>
             <nav class="navbar bg-body-tertiary">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" onclick="Principal()">
                         <img src="logo.png" alt="Logo" width="30" class="d-inline-block align-text-top"> Clinica NutriVida
                     </a>
                 </div>
@@ -25,26 +23,25 @@
         </header>
 
 
-<h1>Consultas</h1>
-<div class="row" id="ListaConsulta"></div>
-
-<br>
-
-<h1>Planes especializados</h1>
-<div class="row" id="ListaPlanes"></div>
-
-<br>
-
-<h1>Evaluaciónes</h1>
-<div class="row" id="ListaEvaluaciones"></div>
-
-<br>
-
-<h1>Talleres Grupales</h1>
-<div class="row" id="TalleresGrupales"></div>
 
 
-<footer class="mt-auto text-white pt-4 pb-4" style="background-color: rgb(54, 52, 57);">
+
+
+
+        <button onclick="loginBtn()" type="button" class="btn btn-primary btn-lg">Iniciar Sesion</button>
+        <button onclick="regBtn()" type="button" class="btn btn-secondary btn-lg">Registrarse</button>
+
+
+
+        <div id="btnRegistro"></div>
+        <div id="btnLogin"></div>
+
+
+
+
+
+
+        <footer class="mt-auto text-white pt-4 pb-4" style="background-color: rgb(54, 52, 57);">
             <div class="container">
 
                 <div class="row">
@@ -89,10 +86,8 @@
             </div>
         </footer>
 
-<script src="JavaScripts/Grupal.js"></script>
-<script src="JavaScripts/Evaluaciones.js"></script>
-<script src="JavaScripts/Consulta.js"></script>
-<script src="JavaScripts/Planes.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+        <script src="JavaScripts/Pagina.js"></script>
+        
+        <script src="JavaScripts/PaginaLogin.js"></script>
 </body>
 </html>
